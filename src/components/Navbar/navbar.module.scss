@@ -1,0 +1,50 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fonts.scss";
+
+.navbar {
+  padding: 30px 50px;
+  margin-bottom: 50px;
+  background-color: $black;
+  &_container {
+    width: 100%;
+    max-width: 1440px;
+    display: block;
+    margin: auto;
+  }
+  &_button {
+    font-family: $fontPrimary;
+    background: none;
+    border: none;
+    color: $white;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-right: 40px;
+    &_active {
+      @extend .navbar_button;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 7px;
+        background-color: $green;
+      }
+    }
+    &:hover {
+      @extend .navbar_button_active;
+    }
+    &:last-child {
+      @extend .navbar_button;
+      margin-right: 0px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    &_container {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
