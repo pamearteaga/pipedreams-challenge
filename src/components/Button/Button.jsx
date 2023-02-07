@@ -3,14 +3,14 @@ import styles from "./button.module.scss";
 import PropTypes from 'prop-types';
 
 const Button = ({text, type, active, buttonAction, disabled}) => {
-
   return (
     <>
       <button
         className={
-          type === "link" ? styles.button_link :
-          type === "button" ? styles.button_secondary : 
-          disabled ? styles.button_disabled :
+          type === "link" && !active ? styles.button_link :
+          type === "link" && active ? styles.button_link_active :
+          type === "button" && !disabled ? styles.button_primary : 
+          type === "button" && disabled ? styles.button_primary_disabled :
           styles.button_primary
         }
         onClick={() => buttonAction()}

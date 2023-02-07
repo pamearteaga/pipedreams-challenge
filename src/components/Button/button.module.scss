@@ -4,38 +4,59 @@
 .button {
   font-family: $fontPrimary;
   background: none;
-  border: none;
+  border: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  &_primary{
+    @extend .button;
+    border: 2px solid $neon;
+    color: $black;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    &_disabled {
+      @extend .button_primary;
+      color: $grey;
+      border: 2px solid $grey;
+      opacity: 0.5;
+      cursor: not-allowed;
+      &:hover {
+        @extend .button_primary_disabled;
+        border: 2px solid $grey !important;
+      }
+    }
+    &:hover {
+      @extend .button_primary;
+      border: 2px solid $violet;
+    }
+  }
   &_link {
     @extend .button;
     color: $white;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-right: 40px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 0px;
+      height: 7px;
+      background-color: transparent;
+    }
     &_active {
       @extend .button_link;
-      position: relative;
       &:before {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 0;
+        @extend .button_link, ::before;
         width: 100%;
-        height: 7px;
-        background-color: $green;
+        background-color: $neon;
       }
     }
     &:hover {
       @extend .button_link_active;
     }
-    &:last-child {
-      @extend .button_link;
-      margin-right: 0px;
-    }
   }
-  /* &_disabled {
-    @extend .button;
-    background-color: $lightgray;
-    color: $gray10;
-    cursor: not-allowed;
-  } */
 }

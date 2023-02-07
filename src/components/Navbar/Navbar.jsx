@@ -13,22 +13,20 @@ const Navbar = () => {
         <Button
           type={"link"}
           text={"Waiters"}
-          buttonAction={(e) => {
+          buttonAction={() => {
             navigate("/waiters");
-            setActive(e.target.value);
+            setActive("Waiters");
           }}
-          active={false}
-          disabled={false}
+          active={active === "Waiters" ? true : false}
         />
         <Button
           type={"link"}
           text={"Cooks"}
-          buttonAction={(e) => {
+          buttonAction={() => {
             navigate("/cooks");
-            setActive(e.target.value);
+            setActive("Cooks");
           }}
-          active={false}
-          disabled={false}
+          active={active === "Cooks" ? true : false}
         />
       </div>
     </div>

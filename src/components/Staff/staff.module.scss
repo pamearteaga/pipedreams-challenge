@@ -1,0 +1,35 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fonts.scss";
+
+.staff {
+  width: 30%;
+  font-family: $fontPrimary;
+  color: $black;
+  &_name {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  &_role {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 30px;
+    color: $violet;
+  }
+  &_info {
+    font-weight: 400;
+    font-size: 1;
+    text-transform: lowercase;
+    line-height: 0.7;
+    strong {
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+  @media screen and (max-width: 1279px) {
+    width: 45%;
+  }
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
