@@ -1,12 +1,13 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import { useSelector } from "react-redux";
 import StaffList from "../components/StaffList/StaffList";
-import {waiters} from "../mocks/data"
 
 const Waiters = ({day}) => {
+  const waitersList = useSelector(store => store.staff.waitersList)
+
   return (
     <div>
-      <StaffList list={waiters[day]} role={"Waiter"} />
+      {waitersList.monday === undefined ? <p>wait</p> : <StaffList list={waitersList[day]} role={"Waiter"} />}
     </div>
   );
 };
