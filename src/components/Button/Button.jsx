@@ -6,6 +6,7 @@ const Button = ({text, type, active, buttonAction, disabled}) => {
   return (
     <>
       <button
+        data-testid={"button"}
         className={
           type === "link" && !active ? styles.button_link :
           type === "link" && active ? styles.button_link_active :

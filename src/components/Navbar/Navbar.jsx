@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import styles from "./navbar.module.scss";
 
-const Navbar = () => {
+const Navbar = ({role}) => {
   const navigate = useNavigate();
-  const [active, setActive] = useState("Waiters");
-
+  const [active, setActive] = useState(role);
+  
+  useEffect(() => {
+    navigate("/");
+  }, [role])
+  
   return (
-    <div className={styles.navbar}>
+    <div className={styles.navbar} data-testid={"navbar"}>
       <div className={styles.navbar_container}>
         <Button
           type={"link"}

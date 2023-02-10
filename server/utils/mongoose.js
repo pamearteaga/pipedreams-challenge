@@ -1,19 +1,11 @@
 const mongoose = require("mongoose");
-const fileSystem = require("fs");
-const path = require("path");
-const fileName = path.join(__dirname, "waiters1.json")
-const data = fileSystem.readFileSync(fileName, 'utf8');
-const jsonDataset = JSON.parse(data);
-const fileCollectionName = Object.keys(jsonDataset)[0];
-const documents = jsonDataset[fileCollectionName];
-//const Staff = require(path.join(__dirname, 'waiters1.json'));
-//import { waiters } from "../data/data";
-/* import waiters from "../data/waiters1.json" assert {type: 'json'}; */
-/* const waiters = import(fileName , {
-  assert: {
-      type: 'json'
-  }
-}); */
+//const fileSystem = require("fs");
+//const path = require("path");
+//const fileName = path.join(__dirname, "waiters1.json")
+//const data = fileSystem.readFileSync(fileName, 'utf8');
+//const jsonDataset = JSON.parse(data);
+//const fileCollectionName = Object.keys(jsonDataset)[0];
+//const documents = jsonDataset[fileCollectionName];
 
 mongoose
   .connect("mongodb://localhost/staff")
@@ -41,9 +33,12 @@ mongoose
   })
   .catch((err) => console.log(err));
 
+
   const resetCollection = async (collectionName, collectionData) => {
     try {
+      //Reset the collections
       await mongoose.connection.collection(collectionName).drop();
+      //Insert new data
       await mongoose.connection.collection(collectionName).insertMany([collectionData]); 
     } catch (error) {
       if (error.message !== 'ns not found') {
@@ -52,40 +47,3 @@ mongoose
     }
   }
 
-
-/* const connectDB = async () => {
-  try {
-    //connect to db
-    const dbURL = "mongodb://localhost/staff"
-    const db = await mongoose.connect(dbURL);
-  
-    //reset collections
-    await resetCollection(db, "waiters", "./../data/waiters1.json");
-    //await resetCollection(db, 'users', './test/users.json');
-  
-  } catch (error) {
-    console.error(error);
-  }
-} */
-
-/* const resetCollection = async (db, dbCollectionName, fileName) => {
-  const data = fileSystem.readFileSync(fileName, 'utf8');
-  const jsonDataset = JSON.parse(data);
-  const fileCollectionName = Object.keys(jsonDataset)[0];
-  const documents = jsonDataset[fileCollectionName];
-  try {
-    await db.collection(dbCollectionName).drop();
-    await db.collection(dbCollectionName).insertMany(fileName);
-  } catch (error) {
-    if (error.message !== 'ns not found') {
-      throw error;
-    }
-  }
-} */
-
-/*   mongoose
-  .connect(dbURL)
-  .then(() => {
-    resetCollection('waiters', './../data/waiters1.json');
-  })
-  .catch(err => console.log(err)); */

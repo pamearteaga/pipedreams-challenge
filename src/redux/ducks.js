@@ -1,5 +1,4 @@
 import axios from "axios";
-import { waiters } from "../mocks/data";
 
 const initialState = {
   waitersList: {},
@@ -25,7 +24,7 @@ export const reducer = (state = initialState, action) => {
 //actions
 export const getWaiters = () => async (dispatch, getState) => {
   try {
-    const res = await axios.get("http://localhost:8080/GetWaiters");
+    const res = await axios.get("http://localhost:3000/GetWaiters");
     dispatch({
       type: GET_WAITERS,
       payload: res.data[0]
@@ -37,7 +36,7 @@ export const getWaiters = () => async (dispatch, getState) => {
 
 export const getCooks = () => async (dispatch, getState) => {
   try {
-    const res = await axios.get("http://localhost:8080/GetCooks");
+    const res = await axios.get("http://localhost:3000/GetCooks");
     dispatch({
       type: GET_COOKS,
       payload: res.data[0]

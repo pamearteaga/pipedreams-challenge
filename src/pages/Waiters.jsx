@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Spinner from "../components/Spinner/Spinner";
 import StaffList from "../components/StaffList/StaffList";
 
 const Waiters = ({day}) => {
@@ -7,7 +8,7 @@ const Waiters = ({day}) => {
 
   return (
     <div>
-      {waitersList.monday === undefined ? <p>wait</p> : <StaffList list={waitersList[day]} role={"Waiter"} />}
+      {waitersList.monday === undefined ? <Spinner /> : <StaffList list={waitersList[day]} role={"Waiter"} />}
     </div>
   );
 };

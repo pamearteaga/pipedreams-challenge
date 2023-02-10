@@ -5,7 +5,7 @@ import styles from "./stafflist.module.scss";
 
 const StaffList = ({ list, role }) => {
   return (
-    <div className={styles.staffList}>
+    <div className={styles.staffList} data-testid={"staffList"}>
       {list.map((name, i) => {
         return <Staff key={i} name={name} role={role} />;
       })}
@@ -18,8 +18,8 @@ StaffList.propTypes = {
   role: PropTypes.string
 };
 StaffList.defaultProps = {
-  list: "Name", 
-  role: "Role"
+  list: [ "One", "Two", "Three" ], 
+  role: "Cook"
 };
 
 export default StaffList;

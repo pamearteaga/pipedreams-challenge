@@ -6,11 +6,9 @@ import Cooks from "./pages/Cooks";
 import Navbar from "./components/Navbar/Navbar.jsx"
 import Button from "./components/Button/Button";
 import { useDispatch } from "react-redux";
-import generateStore from "./redux/store";
 import { getWaiters, getCooks } from "./redux/ducks";
 
 function App() {
-  const store = generateStore();
   const dispatch = useDispatch()
   const weekDays = ["monday", "tuesday", "wednesday", "thursday", "friday"];
   const [day, setDay] = useState(0)
@@ -20,11 +18,11 @@ function App() {
   useEffect(() => {
     dispatch(getWaiters())
     dispatch(getCooks())
-  }, [])
+  })
 
   return (
       <Router>
-        <Navbar />
+        <Navbar role={"Waiters"}/>
         <div className="content">
           <h1 className="content_title">{weekDays[day]}</h1>
           <div className="content_buttons">
