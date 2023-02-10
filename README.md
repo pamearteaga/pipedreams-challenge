@@ -27,7 +27,7 @@ git clone https://github.com/pamearteaga/pipedreams-challenge
 
 1. Open a new terminal and install the dependencies:
 ```
-$npm install
+npm install
 ```
 
 2. Start the DB:
@@ -45,10 +45,10 @@ npm run server
 npm start
 ```
 
-5. As well as the DB, the server and the project must be running at the same time. 
+5. The DB, the server and the project must be running at the same time. 
 If everything was succesful you should be able to see the web in the browser:
 ```
-http://localhost:3000/
+[http://localhost:3000/](http://localhost:3000/)
 ```
 
 ### To run the tests:
