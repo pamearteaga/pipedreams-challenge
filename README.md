@@ -48,7 +48,7 @@ npm start
 5. The DB, the server and the project must be running at the same time. 
 If everything was succesful you should be able to see the web in the browser:
 ```
-[http://localhost:3000/](http://localhost:3000/)
+http://localhost:3000/
 ```
 
 ### To run the tests:
